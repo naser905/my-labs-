@@ -2,7 +2,7 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
+Name  : naser
 Lane  :  AI / Cyber / IT      (delete two)
 Date  :
 
@@ -11,47 +11,38 @@ Run it:   python template.py
 Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
+
+
 # ==================================================================== INPUT
-over_limit_count=0
-while True:
-    label = input("Enter label (or quit): ")
 
-    if label == "quit":
-        break
+label=input("Please enter the hostname:   ")     
+first=float(input("Please enter the GB used:  "))     
+second=float(input("Please enter the Total GB: "))    
+# ================================================================== PROCESS
+difference=second-first
 
-    value = float(input("Enter value: "))
-    limit = float(input("Enter limit: "))
-
-
-    # ================================================================== PROCESS
-    difference = value - limit
-    percent = (value / limit) * 100
-    if percent >= 100:
-        status = "OVER LIMIT"
-        over_limit_count += 1
-    elif percent >= 90:
-        status = "WARNING"
-    else:
-        status = "OK"
+percent =first/second * 100
 
 
-    # =================================================================== OUTPUT
+# =================================================================== OUTPUT
+print("="*34)
+print(f" RECORD CHECK  -  {label}")
+print("="*34)
 
-    print()
-    print("=" * 34)
-    print(f"  RECORD CHECK  -  {label}")
-    print("=" * 34)
+print(f"  Used is       : {first:>10.2f}")
+print(f"  Total is      : {second:>10.2f}")
+print(f"  Free is       : {difference:>10.2f}")
+print(f"  Percent is    : {percent:>10.2f} %")
 
+# report lines go here
 
-    print(f"Value:      {value}")
-    print(f"Limit:      {limit}")
-    print(f"Difference: {difference:.2f}")
-    print(f"Percent:    {percent:.2f}%")
-    print(f"Status:     {status}")
-
-    print("=" * 34)
+print("=" * 34)
 
 
 # ==========================================================================
-
-print(f"OVER LIMIT records:{over_limit_count}")
+# 4. Before you finish:
+#
+#    [ ] Run it three times with different numbers
+#    [ ] Run it with a total of 0 and write the error in your journal
+#    [ ] Check every variable name says what it holds
+#    [ ] Show it to the person next to you
